@@ -1,14 +1,11 @@
 #include <iostream>
 
 #define line_segment float
-#define segment_remainder float
 
 class EuclidsAlgorithm {
 
 public:
-    float result;
-
-    float gcm0(line_segment a, line_segment b)
+    line_segment gcm0(line_segment a, line_segment b)
     {
         while (a != b)
         {
@@ -24,7 +21,7 @@ public:
         return a;
     }
 
-    float gcm1(line_segment a, line_segment b)
+    line_segment gcm1(line_segment a, line_segment b)
     {
         while (a != b)
         {
@@ -33,6 +30,15 @@ public:
                 a = a - b;
                 std::swap(a, b);
             }
+        }
+        return a;
+    }
+
+    line_segment segment_remainder(line_segment a, line_segment b)
+    {
+        while (b < a)
+        {
+            a = a - b;
         }
         return a;
     }
